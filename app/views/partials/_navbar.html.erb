@@ -6,6 +6,10 @@
     SIGN UP
 <% end %> 
 
+<%= link_to destroy_user_session_path, method: :delete do %> 
+    LOG OUT
+<% end %> 
+
 <%= link_to products_path do %>
     Products
 <% end %>
