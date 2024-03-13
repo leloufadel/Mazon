@@ -1,1 +1,10 @@
-<h1> This is the Products#show view! </h1>
+<%= link_to products_path do %>
+  Back
+<% end %>
+<div>
+  <h2><%= @product.title %></h2>
+  <p>Price = <%= @product.current_price %></p>
+  <p>Original Price = <%= @product.previous_price %></p>
+  <p><%= @product.pro_description %></p>
+  <img src=<%= @product.image %> alt="product image">
+</div>

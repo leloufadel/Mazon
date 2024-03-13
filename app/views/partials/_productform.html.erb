@@ -1,0 +1,21 @@
+<%= form_with(model: @product, url: products_path, local: true, method: :post) do |f| %>
+    <div>
+        <%= f.text_field :title, autocomplete: "off", placeholder: "Product name" %>
+    </div>
+    <div>
+        <%= f.number_field :current_price, in: 1..10000, step: 0.01, autocomplete: "off", placeholder: "Price" %>
+    </div>
+    <div>
+        <%= f.number_field :previous_price, in: 1..10000, step: 0.01, autocomplete: "off", placeholder: "Previous Price" %>
+    </div>
+    <div>
+        <%= f.text_field :image, autocomplete: "off", placeholder: "Image URL" %>
+    </div>
+    <div>
+        <%= f.text_area :pro_description, autocomplete: "off", placeholder: "Description" %>
+    </div>
+    <div>
+        <%= f.submit "Create Product"%>
+    </div>
+
+<% end %>

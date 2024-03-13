@@ -1,39 +1,19 @@
-<h1> This is the Products#index view! </h1>
+<h1> Our Products! </h1>
 
-<%= form_with(model: @product, url: products_path, local: true, method: :post) do |f| %>
-    <div>
-        <%= f.text_field :title, autocomplete: "off", placeholder: "Product name" %>
-    </div>
-    <div>
-        <%= f.number_field :current_price, in: 1..10000, step: 0.01, autocomplete: "off", placeholder: "Price" %>
-    </div>
-    <div>
-        <%= f.number_field :previous_price, in: 1..10000, step: 0.01, autocomplete: "off", placeholder: "Previous Price" %>
-    </div>
-    <div>
-        <%= f.text_field :image, autocomplete: "off", placeholder: "Image URL" %>
-    </div>
-    <div>
-        <%= f.text_area :pro_description, autocomplete: "off", placeholder: "Description" %>
-    </div>
-    <div>
-        <%= f.submit "Create Product"%>
-    </div>
-
-<% end %>
+<%= render partial: 'partials/productform' %>
 
 <div>
     <% if @products.empty? %>
         <p>There are no products</p>
     <% else %>
         <% @products.each do |product| %>
-            <div>
-                <h2><%= product.title %></h2>
-                <p><%= product.current_price %></p>
-                <p><%= product.previous_price %></p>
-                <p><%= product.pro_description %></p>
-                <p><%= product.image %></p>
-            </div>
+            <%= link_to product_path(product) do %>
+                <div>
+                    <h2><%= product.title %></h2>
+                    <p><%= product.current_price %></p>
+                    <img src=<%= @product.image %> alt="product image">
+                </div>
+            <% end %>
         <% end %>
     <% end %>
 </div>
