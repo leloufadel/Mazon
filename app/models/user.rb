@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :products, foreign_key: :user_id
   has_many :orders, foreign_key: :user_id
   has_many :reviews, foreign_key: :user_id
+  has_one :cart, foreign_key: :user_id
 end
